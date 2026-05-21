@@ -17,7 +17,7 @@ body {
   /* display: grid; */
   place-items: center;
   /* padding: clamp(18px, 4vw, 56px); */
-  padding: 10rem 0 6rem;
+  padding: 7rem 0 5rem;
   /* transform: translateY(-40px); */
   width: 75%;
 }
