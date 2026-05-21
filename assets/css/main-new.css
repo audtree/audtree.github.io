@@ -1,17 +1,20 @@
-/* assets/css/main.css */
-
-<!--
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: #faf9f7;
-  color: #1a1a1a;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+:root{
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #2b2b2b;
 }
 
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Desktop/tablet: centered block with a slight upward nudge */
 .wrap{
   min-height: 100dvh; /* better on mobile than 100vh */
   display: grid;
@@ -24,13 +27,11 @@ body {
   width: 100%;
   max-width: 1100px;
   display: grid;
-  /* grid-template-columns: 1.35fr 0.65fr; */
-  grid-template-columns: 1.7fr 0.3fr;  /* was 1.35fr 0.65fr */
+  grid-template-columns: 1.35fr 0.65fr;
   gap: clamp(18px, 4vw, 56px);
   align-items: start;
 }
 
-/* Left column */
 h1{
   margin: 0 0 clamp(16px, 3vw, 24px);
   font-size: clamp(44px, 6.2vw, 74px);
@@ -39,32 +40,23 @@ h1{
   font-weight: 700;
 }
 
-p {
+.left{
+  max-width: 68ch;
+}
+
+p,
+.photo figcaption{
   margin: 0 0 16px;
   font-size: clamp(16px, 1.7vw, 20px);
   line-height: 1.55;
-  color: #444;
+  color: var(--muted);
 }
 
-/* Right column */
-.photo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 105%;         /* controls image size */
-}
-
-.photo img {
-  width: 100%;
-  border-radius: 4px;
-  display: block;     /* back to normal */
-}
-
-figcaption {
-  margin-top: 0.6rem;
-  font-size: 0.85rem;
-  color: #888;
-  font-style: italic;
+/* last paragraph spacing */
+p.cta{
+  margin-top: 18px;
+  margin-bottom: 0;
+  color: var(--text);
 }
 
 /* standard links */
@@ -77,8 +69,29 @@ a:hover{
   color: #0a36c0;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+.photo{
+  margin: 0;
+  width: 100%;
+  max-width: 320px;
+}
+
+.photo img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10);
+}
+
+/* caption: same size as body, align with image */
+.photo figcaption{
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+/* Mobile: more top space, smaller centered photo, nicer spacing */
+@media (max-width: 780px){
+
   .wrap{
     transform: none;            /* remove desktop nudge */
     place-items: start center;  /* not vertically centered on short screens */
@@ -86,9 +99,9 @@ a:hover{
     padding-bottom: 8vh;
   }
 
-  .grid {
+  .grid{
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 36px;
   }
 
   .photo{
@@ -100,7 +113,4 @@ a:hover{
     text-align: center;
   }
 
-  .right { order: -1; }  /* photo above text on mobile */
 }
-
--->
