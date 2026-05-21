@@ -39,7 +39,7 @@ h1{
 }
 
 p {
-  margin: 0 0 28px;
+  margin: 0 0 1028px;
   font-size: clamp(16px, 1.7vw, 20px);
   line-height: 1.55;
   color: #444;
