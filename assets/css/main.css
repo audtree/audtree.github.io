@@ -58,13 +58,31 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 105%;         /* controls image size */
+  width: 105%;
+  position: relative;
 }
 
-.photo img {
+.img-default {
   width: 100%;
   border-radius: 12px;
-  display: block;     /* back to normal */
+  display: block;
+}
+
+.img-hover {
+  width: 100%;
+  border-radius: 12px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.photo:hover .img-default {
+  display: none;
+}
+
+.photo:hover .img-hover {
+  display: block;
 }
 
 figcaption {
@@ -72,6 +90,11 @@ figcaption {
   font-size: 0.85rem;
   color: #888;
   font-style: italic;
+  display: none;  /* hidden by default */
+}
+
+.photo:hover figcaption {
+  display: block;  /* shows on hover */
 }
 
 /* standard links */
